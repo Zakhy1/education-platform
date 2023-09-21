@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from lessons.models import Lesson, LessonView
+from lessons.models import Lesson, LessonView, Product, ProductAccess
 
 
 @admin.register(Lesson)
@@ -14,3 +14,13 @@ class LessonViewAdmin(admin.ModelAdmin):
     list_display = ["lesson", "view_time", "viewed"]
     list_filter = ["lesson", "viewed"]
     search_fields = ["user"]
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ["name", "owner"]
+
+
+@admin.register(ProductAccess)
+class ProductAccessAdmin(admin.ModelAdmin):
+    list_display = ["user"]
