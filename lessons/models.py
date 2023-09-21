@@ -10,6 +10,9 @@ class Lesson(models.Model):
     video_link = models.URLField()
     duration = models.IntegerField()  # Длительность в секундах
 
+    def __str__(self):
+        return self.title
+
 
 class LessonView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -24,3 +27,6 @@ class LessonView(models.Model):
         else:
             self.viewed = False
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.lesson.title}: {self.viewed}"
