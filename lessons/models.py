@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.defaultfilters import truncatechars
 
 
 class Product(models.Model):
@@ -15,7 +16,7 @@ class ProductAccess(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.user.username} has access to {self.product.name}"
+        return f"{self.user.username} has access to {self.product.title}"
 
 
 class Lesson(models.Model):
@@ -31,7 +32,7 @@ class Lesson(models.Model):
 class LessonView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    view_time = models.IntegerField()  # Время просмотра в секундах
+    view_time = models.IntegerField(default=0)  # Время просмотра в секундах
     viewed = models.BooleanField(default=False)
     last_view_date = models.DateTimeField(auto_now=True)
 
