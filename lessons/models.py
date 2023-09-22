@@ -33,6 +33,7 @@ class LessonView(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     view_time = models.IntegerField()  # Время просмотра в секундах
     viewed = models.BooleanField(default=False)
+    last_view_date = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         # Проверяем, просмотрено ли 80% урока
