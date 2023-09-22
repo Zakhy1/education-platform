@@ -1,1 +1,2 @@
-admin: 123
+admin: 123  
+default_user: "lesson"

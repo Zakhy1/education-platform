@@ -1,1 +1,0 @@
-[{"model": "products.product", "pk": 1, "fields": {"name": "╩єЁё яю Python", "owner": 1}}, {"model": "products.productaccess", "pk": 1, "fields": {"user": 2, "product": 1}}]
