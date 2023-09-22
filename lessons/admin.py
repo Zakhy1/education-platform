@@ -18,7 +18,7 @@ class LessonViewAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ["name", "owner"]
+    list_display = ["title", "owner"]
 
 
 @admin.register(ProductAccess)
